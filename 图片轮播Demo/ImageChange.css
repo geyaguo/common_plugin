@@ -1,0 +1,60 @@
+﻿* {
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+#all {
+    width: 640px;
+    height: 500px;
+    margin: 0px auto;
+    margin-top: 20px;
+}
+
+#scroll_main {
+    background-color: #f2f2f3;
+    width: 640px;
+    height: 320px;
+    overflow: hidden;
+    position: absolute;
+}
+
+#scroll_img {
+    position: absolute;
+    left: -40px;
+}
+
+#scroll_number {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+
+    #scroll_number li {
+        float: left;
+        width: 15px;
+        height: 15px;
+        text-align: center;
+        border: solid 1px #999;
+        margin-left: 2px;
+        font-size: 13px;
+        line-height: 16px;
+        cursor: pointer;
+    }
+
+.normal {
+    background-color: white;
+    color: gray;
+}
+
+.hover {
+    background-color: gray;
+    color: white;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}

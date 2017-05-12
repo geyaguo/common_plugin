@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>canvas</title>
+	</head>
+	<body>
+		<!--里面的canvas大小是根据外面的class类为banner的大小变化的,只需要控制外面的大小即可,-->
+		<div class="banner" style="width:1000px;height:300px;background:#000000;">
+			<canvas id="canvas" width="396" height="300">浏览器不支持canvas</canvas>
+		</div>
+		<script type="text/javascript">
+	        var canvas = document.getElementById("canvas");
+	        canvas.height = document.getElementsByClassName('banner')[0].offsetHeight;
+	        canvas.width = document.getElementsByClassName('banner')[0].offsetWidth - 10;
+	    </script>
+	    
+	    <script src="js/jquery.min.js"></script>
+	    <script src="js/canvas.js"></script>
+	</body>
+</html>

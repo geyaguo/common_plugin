@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>canvas</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    <canvas id="canvas-banner" style="background: #393D49" width="1910" height="206"></canvas>
+    <script type="text/javascript">
+        var canvas = document.getElementById('canvas-banner');
+        canvas.width = window.document.body.clientWidth;
+        canvas.height = window.innerHeight * 2 / 7;
+        window.onload = function () {
+            var script = document.createElement('script');
+            script.src = 'js/canvas.js';
+            document.getElementsByTagName('body')[0].appendChild(script);
+        }
+    </script>
+</body>
+</html>
+<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
