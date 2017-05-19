@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <title>移动端密码输入框</title>
+    <script src="passwordBox.min.js"></script>
+    <script>
+
+        window.onload=function(){
+            /**
+             * init传入参数依次是：正确密码(传空时不对比输入是否正确),密码键盘背景，标题，副标题
+             * */
+            PwdBox.init('123456','img/pwd_keyboard.png','请输入支付密码','安全支付环境，请放心使用！');
+            /**
+             *res格式：{status:'true或false',password:'用户输入的密码'}
+             *
+             */
+            PwdBox.show(function(res){
+                if(res.status){
+                    //重置输入
+                    alert('密码正确');
+                    //关闭并重置密码输入
+                    PwdBox.reset();
+                }else{
+                    alert(JSON.stringify(arguments));
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+
+</body>
+</html>

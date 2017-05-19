@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery.museum--简单易用的图片弹出放大插件</title>
+        <script src='js/jquery.min.js'></script>
+        <script src='js/jquery.museum.js'></script>
+        <script>
+            $(document).ready(function() {
+                $.museum($('#content img'));
+            });
+        </script>
+        <style type='text/css'>
+        body, html {margin: 0; padding: 0; background: #26537c; color: rgba(255,255,255,0.8); font-family: "Droid Sans Mono", monospace; font-size: 12px; }
+        a { color: #fff; }
+        h1 { line-height: 40px; font-size: 30px; }
+        h2 { line-height: 30px; font-size: 20px; }
+        h1, h2 { color: #fff; border-bottom: 2px solid rgba(255,255,255,0.7); }
+        #container { margin: 50px; }
+        #content img { height: 80px; margin-right: 10px; margin-bottom: 10px; border: 2px solid #043a6b; padding: 2px; }
+        #content img:hover { border: 2px solid #fff; }
+        pre { background: rgba(255,255,255,0.6); padding: 10px; color: #012647; }
+        </style>
+        
+</head>
+
+<body>
+ <div id='container'>
+            <div id='content'>
+                <img src='images/bird.jpg' />
+                <img src='images/snail.jpg' />
+                <img src='images/tiger.jpg' />
+                <img src='images/motosiklet.jpg' />
+                <img src='images/cyglobe.jpg' />
+                <img src='images/bubbles.jpg' />
+                <img src='images/evolution.jpg' />
+            </div>
+            <div id='usage'>
+                <h2>使用方法：</h2>
+                <pre>&lt;script&nbsp;src=&apos;http://code.jquery.com/jquery-1.10.2.min.js&apos;&gt;&lt;/script&gt;
+&lt;script&nbsp;src=&apos;jquery.museum.js&apos;&gt;&lt;/script&gt;
+&lt;script&gt;
+&nbsp;&nbsp;&nbsp;&nbsp;$(document).ready(function()&nbsp;{
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$.museum($(&apos;#content&nbsp;img&apos;));
+&nbsp;&nbsp;&nbsp;&nbsp;});
+&lt;/script&gt;</pre>
+            </div>
+        </div>
+</body>
+</html>
