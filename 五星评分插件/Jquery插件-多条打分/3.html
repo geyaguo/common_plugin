@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<title>无标题文档</title>
+<script type="text/javascript" src="css/jquery-1.6.2.min.js"></script>
+
+</head>
+<body>
+<script type="text/javascript">
+$.fn.studyplay_star=function(options,callback){
+//默认设置
+var settings ={
+   MaxStar      :5,
+   StarWidth    :28,
+   CurrentStar :5,
+   Enabled      :true,
+    ClassIndex:1
+   }; 
+if(options) { jQuery.extend(settings, options); };
+var container = jQuery(this);
+container.css({ "position": "relative" })
+.html('<ul class="studyplay_starBg' + settings.ClassIndex + '"></ul>')
+.find(".studyplay_starBg" + settings.ClassIndex).width(settings.MaxStar * settings.StarWidth)
+.html('<li class="studyplay_starovering' + settings.ClassIndex+ 
+                                '" style="width:' + settings.CurrentStar * settings.StarWidth + 
+                                'px; z-index:0;" id="studyplay_current' + settings.ClassIndex + '"></li>');
+if(settings.Enabled)
+{
+var ListArray = ""; 
+for(k=1;k<settings.MaxStar+1;k++)
+{
+    ListArray += '<li class="studyplay_starON' + settings.ClassIndex + 
+                '" style="width:' + settings.StarWidth * k + 'px;z-index:' + (settings.MaxStar - k + 1) + ';"></li>';
+}
+container.find('.studyplay_starBg' + settings.ClassIndex).append(ListArray)
+container.find('.studyplay_starON' + settings.ClassIndex).hover(function () {
+    $(this).removeClass('studyplay_starON'+settings.ClassIndex).addClass("studyplay_starovering" + settings.ClassIndex);
+             $("#studyplay_current"+settings.ClassIndex).hide();
+             },
+           function () {
+               $(this).removeClass('studyplay_starovering' + settings.ClassIndex).addClass("studyplay_starON" + settings.ClassIndex);
+            $("#studyplay_current"+settings.ClassIndex).show();
+            })
+.click(function(){
+    var studyplay_count = settings.MaxStar - $(this).css("z-index") + 1;
+      $("#studyplay_current"+settings.ClassIndex).width(studyplay_count*settings.StarWidth)
+      //回调函数
+      if (typeof callback == 'function') {
+      callback(studyplay_count);
+      return ;
+      }
+      })
+} 
+} 
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#z").studyplay_star({ MaxStar: 5, CurrentStar: 0, Enabled: true ,ClassIndex:1}, function (value) { alert(value+'z') });
+        $("#x").studyplay_star({ MaxStar: 5, CurrentStar: 0, Enabled: true ,ClassIndex:2}, function (value) { alert(value+'x') });
+    }); 
+</script>
+
+<div id="z"></div>
+<p>&nbsp;</p>
+
+<div id="x"></div>
+</body>
+</html>
+<style>
+.studyplay_starBg1{
+background:url(images/20100807121800.gif) 0 -33px;position:absolute; top:0; left:0; height:28px; padding:0px; cursor:pointer;
+}
+.studyplay_starovering1{
+background:url(images/20100807121800.gif); height:28px; position:absolute; top:0; left:0;
+}
+.studyplay_starON1{
+position:absolute; top:0; left:0; height:22px;
+}
+.studyplay_starBg2{
+background:url(images/20100807121800.gif) 0 -33px;position:absolute; top:0; left:0; height:28px; padding:0px; cursor:pointer;
+}
+.studyplay_starovering2{
+background:url(images/20100807121800.gif); height:28px; position:absolute; top:0; left:0;
+}
+.studyplay_starON2{
+position:absolute; top:0; left:0; height:22px;
+}
+</style>
+

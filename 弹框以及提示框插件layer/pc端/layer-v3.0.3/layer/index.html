@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="renderer" content="webkit|ie-comp|ie-stand" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+		<title>pc端leyer弹框</title>
+		<!--<link rel="stylesheet" type="text/css" href="skin/default/layer.css"/>-->
+	</head>
+	<body>
+		<button class="tishi1">体验框</button>
+		<button class="tishi2">第三方扩展皮肤</button>
+		<button class="tishi3">询问层</button>
+		
+		<script src="jquery.min.js"></script>
+		<script src="layer.js"></script>
+		<script>
+			//layer PC端弹框路径  "http://layer.layui.com/"
+			
+			//初体验
+			$(".tishi1").click(function(){
+				layer.alert('内容')
+			});
+			//第三方扩展皮肤
+			$(".tishi2").click(function() {
+				layer.alert('内容', {
+					icon: 1,
+					skin: 'layer-ext-moon' //该皮肤由layer.seaning.com友情扩展。关于皮肤的扩展规则，去这里查阅
+				})
+			});
+			//询问层
+			$(".tishi3").click(function() {
+				layer.confirm('您是如何看待前端开发？', {
+					btn: ['重要', '奇葩'] //按钮
+				}, function() {
+					layer.msg('的确很重要', {
+						icon: 1
+					});
+				}, function() {
+					layer.msg('也可以这样', {
+						time: 20000, //20s后自动关闭
+						btn: ['明白了', '知道了']
+					});
+				});
+			});
+		</script>
+	</body>
+</html>
